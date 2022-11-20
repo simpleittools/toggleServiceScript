@@ -1,6 +1,9 @@
 import os
 import psutil
 
+serviceName = 'postgresql-x64-13'
+displayName = "PostgreSQL"
+
 
 def get_service(name):
     service = None
@@ -14,19 +17,18 @@ def get_service(name):
     return service
 
 
-service = get_service('postgresql-x64-13')
+service = get_service(serviceName)
 
 
 if service and service['status'] == 'running':
-    print('The PostgreSQL service is running. Do you want to STOP? y/n')
+    print(f'The {displayName} service is running. Do you want to STOP? \ny/n')
     confirm = input()
     if confirm == "y":
-        # change path to the location of E
         os.system("Elevate.exe net stop postgresql-x64-13")
     else:
         quit()
 else:
-    print('The PostgreSQL service not is running. Do you want to START? y/n')
+    print(f'The {displayName} service not is running. Do you want to START? \ny/n')
     confirm = input()
     if confirm == "y":
         os.system("Elevate.exe net start postgresql-x64-13")
