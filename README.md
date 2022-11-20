@@ -1,13 +1,13 @@
-#Toggle Windows Service
+# Toggle Windows Service
 
-##Explanation
+## Explanation
 I originally created this to toggle Postgresql on my testing computer (Docker is great, but my testing computer is direct system interactions). With this, I set up buttons on my Stream Deck to toggle various services as I need them.
 By moving the Service Name and Display Names to variable, I was able to reuse the script for multiple services.
 
 This script will check to see if a service is running on a Windows system.
 If the service is running, it will ask the user if they want to STOP the service. If the service is not running, it will ask the user if they want to START the service.
 
-##Dependencies
+## Dependencies
 To determine the status of a service, this uses PSUTIL
 https://pypi.org/project/psutil/
 
@@ -19,7 +19,7 @@ https://github.com/jpassing/elevate
 Users will still need to answer the UAC challenge. This challenge should not be silenced. 
 It is a critical security item.
 
-##Usage
+## Usage
 You will need to set Elevate.exe into your path variable, or edit lines 27 and 34 to show the full path of Elevate.exe
 
 To select which service you want to toggle, edit the variable:
