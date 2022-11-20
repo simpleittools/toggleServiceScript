@@ -19,20 +19,20 @@ def get_service(name):
 
 
 service = get_service(serviceName)
+default = "y"
 
 
 # check service status and communicate to the user
 if service and service['status'] == 'running':
-    print(f'The {displayName} service is running. Do you want to STOP? \ny/n')
-    confirm = input()
-    if confirm == "y":
+    confirm = input(f'The {displayName} service is running. Do you want to STOP? \nY/n') or default
+    if confirm.lower() == "y" or confirm == '':
         os.system("Elevate.exe net stop postgresql-x64-13")
     else:
         quit()
 else:
-    print(f'The {displayName} service not is running. Do you want to START? \ny/n')
-    confirm = input()
-    if confirm == "y":
+    print()
+    confirm = input(f'The {displayName} service not is running. Do you want to START? \nY/n') or default
+    if confirm.lower() == "y" or confirm == '':
         os.system("Elevate.exe net start postgresql-x64-13")
     else:
         quit()
