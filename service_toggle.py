@@ -26,14 +26,13 @@ default = "y"
 if service and service['status'] == 'running':
     confirm = input(f'The {displayName} service is running. Do you want to STOP? \nY/n') or default
     if confirm.lower() == "y" or confirm == '':
-        os.system("Elevate.exe net stop postgresql-x64-13")
+        os.system(f'Elevate.exe net stop {serviceName}')
     else:
         quit()
 else:
-    print()
     confirm = input(f'The {displayName} service not is running. Do you want to START? \nY/n') or default
     if confirm.lower() == "y" or confirm == '':
-        os.system("Elevate.exe net start postgresql-x64-13")
+        os.system(f'Elevate.exe net start {serviceName}')
     else:
         quit()
 
